@@ -1,0 +1,17 @@
+.movie-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+  }
+  
+  .movie-list::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .movie-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
