@@ -1,4 +1,4 @@
-/* ===== Global Styles ===== */
+/* Estilos Globais */
 body {
   background-color: #000;
   margin: 0;
@@ -7,15 +7,18 @@ body {
   color: #fff;
 }
 
-/* ===== Home Container ===== */
+/* Home Container */
 .home {
   padding: 30px;
   text-align: center;
   background-color: #000;
-  min-height: 100vh;
+  min-height: 100vh; /* Garante que a altura mínima seja 100% da altura da tela */
+  display: flex;
+  flex-direction: column; /* Coloca os itens em coluna (header, conteúdo e footer) */
+  justify-content: space-between; /* Garante que o rodapé vá para o final */
 }
 
-/* ===== Header Styles ===== */
+/* Main Header */
 .main-header {
   background-color: #111;
   color: white;
@@ -33,7 +36,7 @@ body {
   color: red;
 }
 
-/* ===== Navigation Links ===== */
+/* Navigation Links */
 .nav-links {
   display: flex;
   gap: 20px;
@@ -51,7 +54,7 @@ body {
   color: red;
 }
 
-/* ===== Search Form ===== */
+/* Search Form */
 .search-form {
   display: flex;
   gap: 10px;
@@ -88,14 +91,14 @@ body {
   background-color: #cc0000;
 }
 
-/* ===== Error Message ===== */
+/* Error Message */
 .error {
   color: #ff4d4d;
   font-size: 18px;
   margin-top: 20px;
 }
 
-/* ===== Movie List ===== */
+/* Movie List */
 .movie-list {
   display: flex;
   flex-wrap: wrap;
@@ -104,7 +107,7 @@ body {
   margin-top: 20px;
 }
 
-/* ===== Movie Card ===== */
+/* Movie Card */
 .movie-card {
   width: 200px;
   height: 300px;
@@ -130,4 +133,27 @@ body {
 
 .movie-card:hover img {
   opacity: 0.8;
+}
+
+/* Footer */
+.footer {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  /* Não é mais necessário usar position: relative ou margin-top: auto */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: red;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

@@ -3,15 +3,13 @@ import { useParams } from 'react-router-dom';
 import './MovieDetails.css';
 
 const MovieDetails = () => {
-  // Pegando o imdbID da URL
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const API_KEY = '6941ff82'; // Lembre-se de substituir pela sua chave da API
+  const API_KEY = '6941ff82';
 
   useEffect(() => {
-    // Requisição para buscar detalhes do filme
     setLoading(true);
     setError(null);
     fetch(`https://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`)

@@ -1,17 +1,14 @@
-/* Estilo padrão para o body (modo claro) */
 body {
-  background-color: #fff; /* Fundo branco (modo claro) */
-  color: #000; /* Texto preto (modo claro) */
+  background-color: #fff;
+  color: #000;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Modo escuro - com fundo mais escuro */
 body.dark-theme {
-  background-color: #141414; /* Fundo muito escuro no modo escuro */
-  color: #fff; /* Texto branco */
+  background-color: #141414;
+  color: #fff;
 }
 
-/* Botão para alternar entre os temas */
 button.theme-toggle {
   position: fixed;
   top: 20px;
