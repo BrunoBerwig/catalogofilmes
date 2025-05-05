@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Lógica de login (pode usar Firebase, ou outra solução de backend)
     console.log('Login:', email, password);
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); 
   };
 
   return (
@@ -20,14 +26,19 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="password-container">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <button type="submit">Entrar</button>
       </form>
+      <div className="register-link">
+        <p>Ainda não tem uma conta? <Link to="./Register">Registre-se</Link></p>
+      </div>
     </div>
   );
 };

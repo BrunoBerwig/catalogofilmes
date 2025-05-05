@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieList from '../components/MovieList';
 import Loading from '../components/Loading';
 import './Home.css';
@@ -9,6 +9,18 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const API_KEY = '6941ff82';
+
+  useEffect(() => {
+    // Exibir um catálogo inicial de filmes
+    fetch(`https://www.omdbapi.com/?s=action&apikey=${API_KEY}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.Response === 'True') {
+          setMovies(data.Search);
+        }
+      })
+      .catch((err) => setError('Erro ao carregar filmes iniciais.'));
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -36,18 +48,24 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Catálogo de Filmes</h1>
-
-      <form onSubmit={handleSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Buscar filmes..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="submit">Buscar</button>
-      </form>
-
+      <header className="main-header">
+        <h1>Catálogo</h1>
+        <nav className="nav-links">
+          <a href="#filmes">Filmes</a>
+          <a href="#series">Séries</a>
+        </nav>
+  
+        <form onSubmit={handleSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Buscar filmes..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button type="submit">Buscar</button>
+        </form>
+      </header>
+  
       {loading && <Loading />}
       {error && <p className="error">{error}</p>}
       {!loading && !error && <MovieList movies={movies} />}
